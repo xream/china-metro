@@ -2,6 +2,13 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
+a=open('lines.csv', 'w')
+a.write('')
+a.close()
+a=open('stations.csv', 'w')
+a.write('')
+a.close()
+
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
 
@@ -22,7 +29,7 @@ def get_message(ID, cityname, name):
     """
     地铁线路信息获取
     """
-    url = 'http://map.amap.com/service/subway?_1555502190153&srhdata=' + \
+    url = 'http://map.amap.com/service/subway?srhdata=' + \
         ID + '_drw_' + cityname + '.json'
     response = requests.get(url=url, headers=headers)
     html = response.text
